@@ -1,0 +1,15 @@
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+
+cost_matrix = np.array([
+    [9, 2, 7, 8],
+    [6, 4, 3, 7],
+    [5, 8, 1, 8],
+    [7, 6, 9, 4]
+])
+
+row_ind, col_ind = linear_sum_assignment(cost_matrix)
+print("Assignments:")
+for i, j in zip(row_ind, col_ind):
+    print(f"Worker {i} -> Job {j}")
+print("Total Cost:", cost_matrix[row_ind, col_ind].sum())
